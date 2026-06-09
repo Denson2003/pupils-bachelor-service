@@ -1,0 +1,20 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pupils-bachelor-deployment
+  namespace: pupils-bachelor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pupils-bachelor
+  template:
+    metadata:
+      labels:
+        app: pupils-bachelor
+    spec:
+      containers:
+      - name: app
+        image: YOUR_USERNAME/pupils-bachelor:latest
+        ports:
+        - containerPort: 8000
